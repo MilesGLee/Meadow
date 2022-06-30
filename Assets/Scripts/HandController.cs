@@ -19,6 +19,14 @@ public class HandController : MonoBehaviour
 
     public bool LeftHandLaser;
     public bool RightHandLaser;
+    public bool LeftHandClosed;
+    public bool RightHandClosed;
+
+    public Transform RightHeldObject;
+    public Transform LeftHeldObject;
+
+    public Transform LeftHand;
+    public Transform RightHand;
 
     private void Update()
     {
@@ -27,15 +35,25 @@ public class HandController : MonoBehaviour
 
     private void ToggleState() 
     {
-        if (_leftHand.GetBool("handState") && !_leftHand.GetBool("indexState"))
+        if (_leftHand.GetBool("handState") && !_leftHand.GetBool("indexState") && LeftHeldObject == null)
             LeftHandLaser = true;
         else
             LeftHandLaser = false;
 
-        if (_rightHand.GetBool("handState") && !_rightHand.GetBool("indexState"))
+        if (_rightHand.GetBool("handState") && !_rightHand.GetBool("indexState") && RightHeldObject == null)
             RightHandLaser = true;
         else
             RightHandLaser = false;
+
+        if (_leftHand.GetBool("handState") && !_leftHand.GetBool("indexState"))
+            LeftHandClosed = true;
+        else
+            LeftHandClosed = false;
+
+        if (_rightHand.GetBool("handState") && !_rightHand.GetBool("indexState"))
+            RightHandClosed = true;
+        else
+            RightHandClosed = false;
 
         //Left Hand
         if (_leftHandGrip.action.ReadValue<float>() == 0 && _leftHandGripState)
