@@ -52,7 +52,7 @@ public class LaserBehavior : MonoBehaviour
 
         if (_leftPicked != null) 
         {
-            if (Vector3.Distance(_leftPicked.position, _leftHand.position) > 0.2f)
+            if (Vector3.Distance(_leftPicked.position, _leftHand.position) > 0.185f)
             {
                 _leftPicked.GetComponent<Rigidbody>().useGravity = false;
                 _leftPicked.position = Vector3.Lerp(_leftPicked.position, _leftHand.position, 0.05f);
@@ -66,7 +66,7 @@ public class LaserBehavior : MonoBehaviour
 
         if (_rightPicked != null)
         {
-            if (Vector3.Distance(_rightPicked.position, _rightHand.position) > 0.2f)
+            if (Vector3.Distance(_rightPicked.position, _rightHand.position) > 0.185f)
             {
                 _rightPicked.GetComponent<Rigidbody>().useGravity = false;
                 _rightPicked.position = Vector3.Lerp(_rightPicked.position, _rightHand.position, 0.05f);
