@@ -21,7 +21,8 @@ public class InteractableBehavior : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, _parent.position, 0.5f);
             transform.rotation = Quaternion.Lerp(transform.rotation, _parent.rotation, 1f);
-            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Rigidbody>().useGravity = false;
+            //GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
 
         if (!_handType && !_handController.LeftHandClosed && Held)
@@ -32,11 +33,11 @@ public class InteractableBehavior : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "leftHand" && _handController.LeftHandClosed && _handController.LeftHeldObject == null)
+        if (other.tag == "leftHand" && _handController.LeftHandClosed && _handController.LeftHeldObject == null && !Held)
         {
             StartGrabbed(other.transform, false);
         }
-        else if (other.tag == "rightHand" && _handController.RightHandClosed && _handController.RightHeldObject == null)
+        if (other.tag == "rightHand" && _handController.RightHandClosed && _handController.RightHeldObject == null && !Held)
         {
             StartGrabbed(other.transform, true);
         }
@@ -47,7 +48,8 @@ public class InteractableBehavior : MonoBehaviour
         _parent = parent;
         _handType = type;
         Held = true;
-        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().useGravity = false;
         if (type)
             _handController.RightHeldObject = transform;
         if (!type)
@@ -57,16 +59,17 @@ public class InteractableBehavior : MonoBehaviour
     void StopGrabbed() 
     {
         Held = false;
-        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().useGravity = true;
         _parent = null;
         if (_handType)
         {
-            GetComponent<Rigidbody>().AddForce(_handController.RightVelocity * 10000);
+            Debug.Log(_handController.RightVelocity);
+            GetComponent<Rigidbody>().AddForce(_handController.RightVelocity * 500);
             _handController.RightHeldObject = null;
         }
         if (!_handType)
         {
-            GetComponent<Rigidbody>().AddForce(_handController.LeftVelocity * 10000);
+            GetComponent<Rigidbody>().AddForce(_handController.LeftVelocity * 500);
             _handController.LeftHeldObject = null;
         }
     }
