@@ -17,8 +17,7 @@ public class InteractableBehavior : MonoBehaviour
     {
         if (_parent != null) 
         {
-            //transform.position = Vector3.Lerp(transform.position, _parent.position, 0.5f);
-            GetComponent<Rigidbody>().AddForce((_parent.position - transform.position) * Vector3.Distance(transform.position, _parent.position));
+            transform.position = Vector3.Lerp(transform.position, _parent.position, 0.5f);
             transform.rotation = Quaternion.Lerp(transform.rotation, _parent.rotation, 1f);
         }
 
@@ -30,11 +29,11 @@ public class InteractableBehavior : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "leftHand" && _handController.LeftHandClosed && _handController.LeftHeldObject == null) 
+        if (other.tag == "leftHand" && _handController.LeftHandClosed && _handController.LeftHeldObject == null)
         {
             StartGrabbed(other.transform, false);
         }
-        if (other.tag == "rightHand" && _handController.RightHandClosed && _handController.RightHeldObject == null)
+        else if (other.tag == "rightHand" && _handController.RightHandClosed && _handController.RightHeldObject == null)
         {
             StartGrabbed(other.transform, true);
         }
