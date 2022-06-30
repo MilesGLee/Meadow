@@ -1095,6 +1095,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "848495de-a78f-4333-8497-0ed545e81846",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1112,11 +1121,22 @@
                 {
                     "name": "",
                     "id": "76ec2da0-579a-4aa2-b0fb-0e07ff227589",
-                    "path": "<XRController>{LeftHand}/triggerTouched",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Index Finger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be3ff66a-b215-4394-8347-cd3386c1d531",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1143,6 +1163,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "c55e201a-c5e4-4a3c-87af-21f16f5591a9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1160,11 +1189,22 @@
                 {
                     "name": "",
                     "id": "6cd82805-3a75-4143-9591-cec09666be81",
-                    "path": "<XRController>{RightHand}/triggerTouched",
+                    "path": "<XRController>{RightHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Index Finger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af3fd674-7d04-46bc-8bed-dec0f3c04b63",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
