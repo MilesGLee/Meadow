@@ -1073,6 +1073,102 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Custom LeftHand Interaction",
+            "id": "95b90690-6979-431a-8d1c-5b46a7ad5cd9",
+            "actions": [
+                {
+                    "name": "Grip",
+                    "type": "Button",
+                    "id": "90b06300-d1da-466a-9594-fceb38fdff3b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Index Finger",
+                    "type": "Button",
+                    "id": "2d98b814-d694-4f91-a73a-23ca2eea9b4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4e66878c-ab0b-45db-aa2d-4519ee8362f4",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76ec2da0-579a-4aa2-b0fb-0e07ff227589",
+                    "path": "<XRController>{LeftHand}/triggerTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Index Finger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Custom RightHand Interaction",
+            "id": "1c7ddfff-cb73-4a8c-818f-9f9f2de5dfaa",
+            "actions": [
+                {
+                    "name": "Grip",
+                    "type": "Button",
+                    "id": "bc836238-9ccc-4173-aee6-3c7617f8743a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Index Finger",
+                    "type": "Button",
+                    "id": "09baecf9-2ff8-41b6-a905-dfebcce19f10",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2849151f-7cd9-4085-bce3-359acf098edf",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cd82805-3a75-4143-9591-cec09666be81",
+                    "path": "<XRController>{RightHand}/triggerTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Index Finger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
