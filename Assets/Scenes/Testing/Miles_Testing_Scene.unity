@@ -1027,8 +1027,10 @@ MonoBehaviour:
   _rightLR: {fileID: 2096263463}
   _leftColor: {r: 0, g: 1, b: 0.94911766, a: 1}
   _rightColor: {r: 1, g: 0.6217326, b: 0, a: 1}
-  _leftInteract: {fileID: 0}
-  _rightInteract: {fileID: 0}
+  _leftInteract: {fileID: -3899312003631369729, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _rightInteract: {fileID: -3716829722415358559, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _leftHand: {fileID: 1542784981}
+  _rightHand: {fileID: 2119376687}
 --- !u!1 &995837745
 GameObject:
   m_ObjectHideFlags: 0
