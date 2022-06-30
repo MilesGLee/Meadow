@@ -28,9 +28,28 @@ public class HandController : MonoBehaviour
     public Transform LeftHand;
     public Transform RightHand;
 
+    private Vector3 _leftVelocity;
+    private Vector3 _rightVelocity;
+
+    Vector3 leftPrePos;
+    Vector3 rightPrePos;
+
+    public Vector3 LeftVelocity { get { return _leftVelocity; } }
+    public Vector3 RightVelocity { get { return _rightVelocity; } }
+
+    private void Awake()
+    {
+        leftPrePos = LeftHand.position;
+        rightPrePos = RightHand.position;
+    }
+
     private void Update()
     {
         ToggleState();
+
+        _leftVelocity = (LeftHand.position - leftPrePos) * Time.deltaTime;
+        _rightVelocity = (RightHand.position - rightPrePos) * Time.deltaTime;
+        
     }
 
     private void ToggleState() 

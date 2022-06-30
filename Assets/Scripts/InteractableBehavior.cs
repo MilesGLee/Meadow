@@ -7,6 +7,7 @@ public class InteractableBehavior : MonoBehaviour
     [SerializeField] private HandController _handController;
     private Transform _parent;
     private bool _handType; //True = right, False = left
+    public bool Held;
 
     void Start()
     {
@@ -15,15 +16,17 @@ public class InteractableBehavior : MonoBehaviour
 
     void Update()
     {
+
         if (_parent != null) 
         {
             transform.position = Vector3.Lerp(transform.position, _parent.position, 0.5f);
             transform.rotation = Quaternion.Lerp(transform.rotation, _parent.rotation, 1f);
+            GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        if (!_handType && !_handController.LeftHandClosed)
+        if (!_handType && !_handController.LeftHandClosed && Held)
             StopGrabbed();
-        if (_handType && !_handController.RightHandClosed)
+        if (_handType && !_handController.RightHandClosed && Held)
             StopGrabbed();
     }
 
@@ -43,7 +46,8 @@ public class InteractableBehavior : MonoBehaviour
     {
         _parent = parent;
         _handType = type;
-        GetComponent<Rigidbody>().useGravity = false;
+        Held = true;
+        GetComponent<Rigidbody>().isKinematic = true;
         if (type)
             _handController.RightHeldObject = transform;
         if (!type)
@@ -52,11 +56,18 @@ public class InteractableBehavior : MonoBehaviour
 
     void StopGrabbed() 
     {
-        GetComponent<Rigidbody>().useGravity = true;
+        Held = false;
+        GetComponent<Rigidbody>().isKinematic = false;
         _parent = null;
         if (_handType)
+        {
+            GetComponent<Rigidbody>().AddForce(_handController.RightVelocity * 10000);
             _handController.RightHeldObject = null;
+        }
         if (!_handType)
+        {
+            GetComponent<Rigidbody>().AddForce(_handController.LeftVelocity * 10000);
             _handController.LeftHeldObject = null;
+        }
     }
 }

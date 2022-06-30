@@ -52,24 +52,37 @@ public class LaserBehavior : MonoBehaviour
 
         if (_leftPicked != null) 
         {
-            if (Vector3.Distance(_leftPicked.position, _leftHand.position) > 0.185f)
+            if (Vector3.Distance(_leftPicked.position, _leftHand.position) > 0.05f && _handController.LeftHeldObject == null)
             {
                 _leftPicked.GetComponent<Rigidbody>().useGravity = false;
-                _leftPicked.position = Vector3.Lerp(_leftPicked.position, _leftHand.position, 0.05f);
+                _leftPicked.position = Vector3.Lerp(_leftPicked.position, _leftHand.position, 0.15f);
             }
             else 
             {
-                _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+                if (_leftPicked.GetComponent<InteractableBehavior>()) 
+                {
+                    if (_leftPicked.GetComponent<InteractableBehavior>().Held)
+                    {
+                        
+                    }
+                    else 
+                    {
+                        _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+                    }
+                }
+                else
+                    _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+
                 _leftPicked = null;
             }
         }
 
         if (_rightPicked != null)
         {
-            if (Vector3.Distance(_rightPicked.position, _rightHand.position) > 0.185f)
+            if (Vector3.Distance(_rightPicked.position, _rightHand.position) > 0.05f && _handController.RightHeldObject == null)
             {
                 _rightPicked.GetComponent<Rigidbody>().useGravity = false;
-                _rightPicked.position = Vector3.Lerp(_rightPicked.position, _rightHand.position, 0.05f);
+                _rightPicked.position = Vector3.Lerp(_rightPicked.position, _rightHand.position, 0.15f);
             }
             else
             {
