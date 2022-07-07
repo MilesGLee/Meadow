@@ -58,6 +58,7 @@ public class LaserBehavior : MonoBehaviour
             {
                 //_leftPicked.GetComponent<Rigidbody>().useGravity = false;
                 _leftPicked.position = Vector3.Lerp(_leftPicked.position, _leftHand.position, 0.15f);
+                _leftPicked.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 if (_objectGrabbedLeft)
                 {
                     //_leftPicked.GetComponent<Rigidbody>().useGravity = true;
@@ -78,6 +79,7 @@ public class LaserBehavior : MonoBehaviour
             {
                 //_rightPicked.GetComponent<Rigidbody>().useGravity = false;
                 _rightPicked.position = Vector3.Lerp(_rightPicked.position, _rightHand.position, 0.15f);
+                _rightPicked.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 if (_objectGrabbedRight)
                 {
                     //_rightPicked.GetComponent<Rigidbody>().useGravity = true;
