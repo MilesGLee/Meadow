@@ -21,6 +21,8 @@ public class LaserBehavior : MonoBehaviour
     private Transform _leftPicked;
     [SerializeField] private Transform _leftHand;
     [SerializeField] private Transform _rightHand;
+    private bool _objectGrabbedLeft;
+    private bool _objectGrabbedRight;
 
     void Start()
     {
@@ -32,7 +34,7 @@ public class LaserBehavior : MonoBehaviour
 
     void Update()
     {
-        if (_handController.LeftHandLaser)
+        if (_handController.LeftHandLaser && !_objectGrabbedLeft)
         {
             LeftLaser();
         }
@@ -41,7 +43,7 @@ public class LaserBehavior : MonoBehaviour
             StopLeftLaser();
         }
 
-        if (_handController.RightHandLaser)
+        if (_handController.RightHandLaser && !_objectGrabbedRight)
         {
             RightLaser();
         }
@@ -75,6 +77,8 @@ public class LaserBehavior : MonoBehaviour
 
                 _leftPicked = null;
             }
+            if(_objectGrabbedLeft)
+                _leftPicked.GetComponent<Rigidbody>().useGravity = true;
         }
 
         if (_rightPicked != null)
@@ -89,6 +93,8 @@ public class LaserBehavior : MonoBehaviour
                 _rightPicked.GetComponent<Rigidbody>().useGravity = true;
                 _rightPicked = null;
             }
+            if (_objectGrabbedRight)
+                _rightPicked.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 
@@ -184,5 +190,33 @@ public class LaserBehavior : MonoBehaviour
             }
             _leftObj = null;
         }
+    }
+
+    public void GrabLeft() 
+    {
+        _objectGrabbedLeft = true;
+        if (_leftPicked != null)
+            _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public void LeaveLeft() 
+    {
+        _objectGrabbedLeft = false;
+        if(_leftPicked != null)
+            _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public void GrabRight()
+    {
+        _objectGrabbedRight = true;
+        if(_rightPicked != null)
+            _rightPicked.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public void LeaveRight()
+    {
+        _objectGrabbedRight = false;
+        if(_rightPicked != null)
+            _rightPicked.GetComponent<Rigidbody>().useGravity = true;
     }
 }
