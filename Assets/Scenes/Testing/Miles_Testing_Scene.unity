@@ -2824,7 +2824,7 @@ MonoBehaviour:
   m_PlayHapticsOnHoverEntered: 1
   m_HapticHoverEnterIntensity: 0.1
   m_HapticHoverEnterDuration: 0.1
-  m_PlayHapticsOnHoverExited: 1
+  m_PlayHapticsOnHoverExited: 0
   m_HapticHoverExitIntensity: 0.1
   m_HapticHoverExitDuration: 0.1
   m_PlayHapticsOnHoverCanceled: 0
@@ -2841,8 +2841,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.09
+  m_Center: {x: -0.03, y: -0.03, z: -0.09}
 --- !u!1001 &1599552354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4396,7 +4396,7 @@ MonoBehaviour:
   m_PlayHapticsOnHoverEntered: 1
   m_HapticHoverEnterIntensity: 0.1
   m_HapticHoverEnterDuration: 0.1
-  m_PlayHapticsOnHoverExited: 1
+  m_PlayHapticsOnHoverExited: 0
   m_HapticHoverExitIntensity: 0.1
   m_HapticHoverExitDuration: 0.1
   m_PlayHapticsOnHoverCanceled: 0
@@ -4413,8 +4413,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.09
+  m_Center: {x: 0.03, y: -0.03, z: -0.09}
 --- !u!1 &2135810946
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,27 +58,18 @@ public class LaserBehavior : MonoBehaviour
             {
                 _leftPicked.GetComponent<Rigidbody>().useGravity = false;
                 _leftPicked.position = Vector3.Lerp(_leftPicked.position, _leftHand.position, 0.15f);
+                if (_objectGrabbedLeft)
+                {
+                    _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+                    _leftPicked = null;
+                }
             }
             else 
             {
-                if (_leftPicked.GetComponent<InteractableBehavior>()) 
-                {
-                    if (_leftPicked.GetComponent<InteractableBehavior>().Held)
-                    {
-                        
-                    }
-                    else 
-                    {
-                        _leftPicked.GetComponent<Rigidbody>().useGravity = true;
-                    }
-                }
-                else
-                    _leftPicked.GetComponent<Rigidbody>().useGravity = true;
-
+                _leftPicked.GetComponent<Rigidbody>().useGravity = true;
                 _leftPicked = null;
             }
-            if(_objectGrabbedLeft)
-                _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+            
         }
 
         if (_rightPicked != null)
@@ -87,14 +78,18 @@ public class LaserBehavior : MonoBehaviour
             {
                 _rightPicked.GetComponent<Rigidbody>().useGravity = false;
                 _rightPicked.position = Vector3.Lerp(_rightPicked.position, _rightHand.position, 0.15f);
+                if (_objectGrabbedRight)
+                {
+                    _rightPicked.GetComponent<Rigidbody>().useGravity = true;
+                    _rightPicked = null;
+                }
             }
             else
             {
                 _rightPicked.GetComponent<Rigidbody>().useGravity = true;
                 _rightPicked = null;
             }
-            if (_objectGrabbedRight)
-                _rightPicked.GetComponent<Rigidbody>().useGravity = true;
+            
         }
     }
 
