@@ -28,32 +28,17 @@ public class HandController : MonoBehaviour
     public Transform LeftHand;
     public Transform RightHand;
 
-    private Vector3 _leftVelocity;
-    private Vector3 _rightVelocity;
 
-    Vector3 leftPrePos;
-    Vector3 rightPrePos;
-    Vector3 leftPostPos;
-    Vector3 rightPostPos;
-
-    public Vector3 LeftVelocity { get { return _leftVelocity; } }
-    public Vector3 RightVelocity { get { return _rightVelocity; } }
 
     private void Awake()
     {
-        leftPrePos = LeftHand.position;
-        rightPrePos = RightHand.position;
+
     }
 
     private void Update()
     {
         ToggleState();
 
-        _leftVelocity = (LeftHand.position - leftPrePos) * Time.deltaTime * 1000;
-        _rightVelocity = (RightHand.position - rightPrePos) * Time.deltaTime * 1000;
-        rightPostPos = RightHand.position;
-        leftPostPos = LeftHand.position;
-        RoutineBehaviour.Instance.StartNewTimedAction(args => { leftPrePos = leftPostPos; rightPrePos = rightPostPos; }, TimedActionCountType.SCALEDTIME, 0.01f);
     }
 
     private void ToggleState() 

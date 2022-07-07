@@ -61,16 +61,5 @@ public class InteractableBehavior : MonoBehaviour
         Held = false;
         GetComponent<Rigidbody>().useGravity = true;
         _parent = null;
-        if (_handType)
-        {
-            Debug.Log(_handController.RightVelocity);
-            GetComponent<Rigidbody>().AddForce(_handController.RightVelocity * 500);
-            _handController.RightHeldObject = null;
-        }
-        if (!_handType)
-        {
-            GetComponent<Rigidbody>().AddForce(_handController.LeftVelocity * 500);
-            _handController.LeftHeldObject = null;
-        }
     }
 }

@@ -54,19 +54,19 @@ public class LaserBehavior : MonoBehaviour
 
         if (_leftPicked != null) 
         {
-            if (Vector3.Distance(_leftPicked.position, _leftHand.position) > 0.05f && _handController.LeftHeldObject == null)
+            if (Vector3.Distance(_leftPicked.position, _leftHand.position) > 0.05f)
             {
-                _leftPicked.GetComponent<Rigidbody>().useGravity = false;
+                //_leftPicked.GetComponent<Rigidbody>().useGravity = false;
                 _leftPicked.position = Vector3.Lerp(_leftPicked.position, _leftHand.position, 0.15f);
                 if (_objectGrabbedLeft)
                 {
-                    _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+                    //_leftPicked.GetComponent<Rigidbody>().useGravity = true;
                     _leftPicked = null;
                 }
             }
             else 
             {
-                _leftPicked.GetComponent<Rigidbody>().useGravity = true;
+                //_leftPicked.GetComponent<Rigidbody>().useGravity = true;
                 _leftPicked = null;
             }
             
@@ -74,19 +74,19 @@ public class LaserBehavior : MonoBehaviour
 
         if (_rightPicked != null)
         {
-            if (Vector3.Distance(_rightPicked.position, _rightHand.position) > 0.05f && _handController.RightHeldObject == null)
+            if (Vector3.Distance(_rightPicked.position, _rightHand.position) > 0.05f)
             {
-                _rightPicked.GetComponent<Rigidbody>().useGravity = false;
+                //_rightPicked.GetComponent<Rigidbody>().useGravity = false;
                 _rightPicked.position = Vector3.Lerp(_rightPicked.position, _rightHand.position, 0.15f);
                 if (_objectGrabbedRight)
                 {
-                    _rightPicked.GetComponent<Rigidbody>().useGravity = true;
+                    //_rightPicked.GetComponent<Rigidbody>().useGravity = true;
                     _rightPicked = null;
                 }
             }
             else
             {
-                _rightPicked.GetComponent<Rigidbody>().useGravity = true;
+                //_rightPicked.GetComponent<Rigidbody>().useGravity = true;
                 _rightPicked = null;
             }
             
@@ -190,28 +190,20 @@ public class LaserBehavior : MonoBehaviour
     public void GrabLeft() 
     {
         _objectGrabbedLeft = true;
-        if (_leftPicked != null)
-            _leftPicked.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void LeaveLeft() 
     {
         _objectGrabbedLeft = false;
-        if(_leftPicked != null)
-            _leftPicked.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void GrabRight()
     {
         _objectGrabbedRight = true;
-        if(_rightPicked != null)
-            _rightPicked.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void LeaveRight()
     {
         _objectGrabbedRight = false;
-        if(_rightPicked != null)
-            _rightPicked.GetComponent<Rigidbody>().useGravity = true;
     }
 }
