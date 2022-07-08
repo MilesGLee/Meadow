@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class LaserBehavior : MonoBehaviour
 {
@@ -23,6 +24,13 @@ public class LaserBehavior : MonoBehaviour
     [SerializeField] private Transform _rightHand;
     private bool _objectGrabbedLeft;
     private bool _objectGrabbedRight;
+    [SerializeField] private GameObject _canvas;
+    [SerializeField] private Text _canvasText;
+    [SerializeField] private Image _selectIcon;
+    private bool _UIActiveLeft;
+    private bool _UIActiveRight;
+    [SerializeField] private Transform _mainCameraTransform;
+    private float _selectedAmount;
 
     void Start()
     {
@@ -34,6 +42,9 @@ public class LaserBehavior : MonoBehaviour
 
     void Update()
     {
+        _canvas.SetActive(false);
+        _canvasText.enabled = false;
+        _selectIcon.enabled = false;
         if (_handController.LeftHandLaser && !_objectGrabbedLeft)
         {
             LeftLaser();
@@ -121,6 +132,29 @@ public class LaserBehavior : MonoBehaviour
                     _leftObj.GetComponent<Outline>().enabled = false;
                     _leftObj = null;
                 }
+
+                if (hit.collider.tag == "bed" && !_UIActiveRight)
+                {
+                    if(!_UIActiveLeft)
+                        _selectedAmount = 0;
+                    _UIActiveLeft = true;
+                    _canvas.SetActive(true);
+                    _canvasText.enabled = true;
+                    _canvas.transform.position = hit.point;
+                    _canvas.transform.LookAt(_mainCameraTransform);
+                    _canvasText.text = "Press [B] to sleep";
+                    if (_leftInteract.action.ReadValue<float>() == 1)
+                    {
+                        _canvasText.enabled = false;
+                        RoutineBehaviour.Instance.StartNewTimedAction(args => { _selectedAmount += 0.1f; }, TimedActionCountType.SCALEDTIME, 0.2f);
+                        _selectIcon.enabled = true;
+                        _selectIcon.fillAmount = _selectedAmount;
+                    }
+                }
+                else 
+                {
+                    _UIActiveLeft = false;
+                }
             }
         }
         else 
@@ -154,6 +188,29 @@ public class LaserBehavior : MonoBehaviour
                 {
                     _rightObj.GetComponent<Outline>().enabled = false;
                     _rightObj = null;
+                }
+
+                if (hit.collider.tag == "bed" && !_UIActiveLeft)
+                {
+                    if (!_UIActiveRight)
+                        _selectedAmount = 0;
+                    _UIActiveRight = true;
+                    _canvas.SetActive(true);
+                    _canvas.transform.position = hit.point;
+                    _canvas.transform.LookAt(_mainCameraTransform);
+                    _canvasText.enabled = true;
+                    _canvasText.text = "Press [B] to sleep";
+                    if (_rightInteract.action.ReadValue<float>() == 1)
+                    {
+                        _canvasText.enabled = false;
+                        RoutineBehaviour.Instance.StartNewTimedAction(args => { _selectedAmount += 0.1f; }, TimedActionCountType.SCALEDTIME, 0.2f);
+                        _selectIcon.enabled = true;
+                        _selectIcon.fillAmount = _selectedAmount;
+                    }
+                }
+                else
+                {
+                    _UIActiveRight = false;
                 }
             }
         }
