@@ -146,7 +146,7 @@ public class LaserBehavior : MonoBehaviour
                     if (_leftInteract.action.ReadValue<float>() == 1)
                     {
                         _canvasText.enabled = false;
-                        RoutineBehaviour.Instance.StartNewTimedAction(args => { _selectedAmount += 0.1f; }, TimedActionCountType.SCALEDTIME, 0.2f);
+                        
                         _selectIcon.enabled = true;
                         _selectIcon.fillAmount = _selectedAmount;
                     }
@@ -203,7 +203,7 @@ public class LaserBehavior : MonoBehaviour
                     if (_rightInteract.action.ReadValue<float>() == 1)
                     {
                         _canvasText.enabled = false;
-                        RoutineBehaviour.Instance.StartNewTimedAction(args => { _selectedAmount += 0.1f; }, TimedActionCountType.SCALEDTIME, 0.2f);
+                        RoutineBehaviour.Instance.StartNewTimedAction(args => { _selectedAmount += 0.1f; }, TimedActionCountType.SCALEDTIME, 0.5f);
                         _selectIcon.enabled = true;
                         _selectIcon.fillAmount = _selectedAmount;
                     }
@@ -223,6 +223,7 @@ public class LaserBehavior : MonoBehaviour
     void StopRightLaser() 
     {
         _rightLR.positionCount = 0;
+        _UIActiveLeft = false;
         if (_rightObj != null)
         {
             if (_rightObj.GetComponent<Outline>())
@@ -235,6 +236,7 @@ public class LaserBehavior : MonoBehaviour
 
     void StopLeftLaser()
     {
+        _UIActiveRight = false;
         _leftLR.positionCount = 0;
         if (_leftObj != null)
         {
@@ -264,5 +266,17 @@ public class LaserBehavior : MonoBehaviour
     public void LeaveRight()
     {
         _objectGrabbedRight = false;
+    }
+
+    void UseLaser() 
+    {
+        while (_selectedAmount != 1) 
+        {
+            RoutineBehaviour.Instance.StartNewTimedAction(args => { _selectedAmount += 0.1f; }, TimedActionCountType.SCALEDTIME, 0.5f);
+        }
+        if (_selectedAmount == 1) 
+        {
+            _selectedAmount = 0;
+        }
     }
 }
