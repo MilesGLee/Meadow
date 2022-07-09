@@ -535,6 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee45b977a747240ad0286c954b553b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canActivate: 0
+  _displayText: 
   _onActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -2450,6 +2452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee45b977a747240ad0286c954b553b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canActivate: 0
+  _displayText: 
   _onActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -2635,7 +2639,7 @@ GameObject:
   - component: {fileID: 682666174}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: bed
+  m_TagString: action
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2730,6 +2734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee45b977a747240ad0286c954b553b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canActivate: 1
+  _displayText: Press [B] to sleep.
   _onActivate:
     m_PersistentCalls:
       m_Calls: []

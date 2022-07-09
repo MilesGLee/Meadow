@@ -8,6 +8,7 @@ TagManager:
   - leftHand
   - rightHand
   - bed
+  - action
   layers:
   - Default
   - TransparentFX

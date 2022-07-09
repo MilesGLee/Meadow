@@ -10,7 +10,12 @@ public class InteractableObjectBehavior : MonoBehaviour
     private Transform _moveTarget;
     private float _stoppingDistance = 0.12f;
     private bool _hasTarget;
+    [SerializeField] private bool _canActivate;
+    [SerializeField] private string _displayText;
     [SerializeField] private UnityEvent _onActivate;
+
+    public string DisplayText { get { return _displayText; } }
+    public bool CanActivate { get { return _canActivate; } }
 
     void Start()
     {

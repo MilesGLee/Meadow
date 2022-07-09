@@ -108,7 +108,7 @@ public class ControllerInteractionManager : MonoBehaviour
             }
 
             //If the laser hits an interactable object
-            if (hit.collider.GetComponent<InteractableObjectBehavior>() && hit.collider.tag != "bed")
+            if (hit.collider.GetComponent<InteractableObjectBehavior>() && !hit.collider.GetComponent<InteractableObjectBehavior>().CanActivate)
             {
                 //Begin highlighting that object with the hands color
                 _hoveredR = hit.collider.GetComponent<InteractableObjectBehavior>();
@@ -125,7 +125,7 @@ public class ControllerInteractionManager : MonoBehaviour
                 }
             }
             //If the laser hits the bed
-            if (hit.collider.GetComponent<InteractableObjectBehavior>() && hit.collider.tag == "bed") 
+            if (hit.collider.GetComponent<InteractableObjectBehavior>() && hit.collider.GetComponent<InteractableObjectBehavior>().CanActivate) 
             {
                 //Begin highlighting that object with the hands color
                 _hoveredR = hit.collider.GetComponent<InteractableObjectBehavior>();
@@ -139,7 +139,7 @@ public class ControllerInteractionManager : MonoBehaviour
                 _HUDCanvasR.transform.position = hit.point;
                 _HUDCanvasR.transform.LookAt(_cameraTransform.position);
                 _HUDTextR.enabled = true;
-                _HUDTextR.text = "Press [B] to sleep.";
+                _HUDTextR.text = "" + _hoveredR.DisplayText;
 
                 //if the input button is pressed start increasing the wheel fill amount
                 if (_inputActivateR.action.ReadValue<float>() == 1)
@@ -196,7 +196,7 @@ public class ControllerInteractionManager : MonoBehaviour
             }
 
             //If the laser hits an interactable object
-            if (hit.collider.GetComponent<InteractableObjectBehavior>() && hit.collider.tag != "bed")
+            if (hit.collider.GetComponent<InteractableObjectBehavior>() && !hit.collider.GetComponent<InteractableObjectBehavior>().CanActivate)
             {
                 //Begin highlighting that object with the hands color
                 _hoveredL = hit.collider.GetComponent<InteractableObjectBehavior>();
@@ -214,7 +214,7 @@ public class ControllerInteractionManager : MonoBehaviour
             }
 
             //If the laser hits the bed
-            if (hit.collider.GetComponent<InteractableObjectBehavior>() && hit.collider.tag == "bed")
+            if (hit.collider.GetComponent<InteractableObjectBehavior>() && hit.collider.GetComponent<InteractableObjectBehavior>().CanActivate)
             {
                 //Begin highlighting that object with the hands color
                 _hoveredL = hit.collider.GetComponent<InteractableObjectBehavior>();
@@ -228,7 +228,7 @@ public class ControllerInteractionManager : MonoBehaviour
                 _HUDCanvasL.transform.position = hit.point;
                 _HUDCanvasL.transform.LookAt(_cameraTransform.position);
                 _HUDTextL.enabled = true;
-                _HUDTextL.text = "Press [B] to sleep.";
+                _HUDTextL.text = "" + _hoveredL.DisplayText;
 
                 //if the input button is pressed start increasing the wheel fill amount
                 if (_inputActivateL.action.ReadValue<float>() == 1)
