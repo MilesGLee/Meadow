@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+[RequireComponent(typeof(Outline))]
 public class InteractableObjectBehavior : MonoBehaviour
 {
     private Outline _outline;
     private Transform _moveTarget;
-    private float _stoppingDistance = 0.125f;
+    private float _stoppingDistance = 0.12f;
     private bool _hasTarget;
+    [SerializeField] private UnityEvent _onActivate;
 
     void Start()
     {
@@ -49,5 +52,10 @@ public class InteractableObjectBehavior : MonoBehaviour
             _moveTarget = target;
             _hasTarget = true;
         }
+    }
+
+    public void Activate() 
+    {
+        _onActivate.Invoke();
     }
 }

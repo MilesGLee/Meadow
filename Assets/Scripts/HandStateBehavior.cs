@@ -33,6 +33,7 @@ public class HandStateBehavior : MonoBehaviour
 
     private void Awake()
     {
+        //Default animate state for both hands
         _handStateR = HandState.OPEN;
         _handStateL = HandState.OPEN;
     }
