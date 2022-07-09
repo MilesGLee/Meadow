@@ -1445,8 +1445,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451789337}
   m_LocalRotation: {x: 0.50000006, y: 0.49999994, z: 0.49999857, w: 0.5000015}
-  m_LocalPosition: {x: 1, y: 2.012, z: 0.25214}
-  m_LocalScale: {x: 6.5594497, y: 100.09655, z: 2.96698}
+  m_LocalPosition: {x: 1, y: 2.0406, z: 0.25214}
+  m_LocalScale: {x: 4.0593543, y: 100.09655, z: 2.96698}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1522152308}
@@ -3330,8 +3330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbc5bfe039f95240b686a6122263254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputGrabR: {fileID: -3716829722415358559, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _inputGrabL: {fileID: -3899312003631369729, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _inputActivateR: {fileID: -3716829722415358559, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _inputActivateL: {fileID: -3899312003631369729, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _handStateBehavior: {fileID: 932741365}
   _lineRendererR: {fileID: 2096263463}
   _laserSpawnR: {fileID: 435715925}
@@ -3339,6 +3339,8 @@ MonoBehaviour:
   _lineRendererL: {fileID: 2135810948}
   _laserSpawnL: {fileID: 1984260246}
   _colorL: {r: 0, g: 1, b: 0.9490197, a: 1}
+  _grabPointR: {fileID: 1157994110}
+  _grabPointL: {fileID: 430876233}
 --- !u!114 &932741365
 MonoBehaviour:
   m_ObjectHideFlags: 0

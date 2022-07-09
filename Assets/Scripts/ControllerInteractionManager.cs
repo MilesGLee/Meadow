@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class ControllerInteractionManager : MonoBehaviour
 {
     [Header("Input")]
-    [SerializeField] private InputActionReference _inputGrabR; //The right hand input button to grab highlighted object
-    [SerializeField] private InputActionReference _inputGrabL; //The left hand input button to grab highlighted object
+    [SerializeField] private InputActionReference _inputActivateR; //The right hand input button to grab highlighted object
+    [SerializeField] private InputActionReference _inputActivateL; //The left hand input button to grab highlighted object
 
     [Header("Right Hand Laser Pointer")]
     [SerializeField] private HandStateBehavior _handStateBehavior;
@@ -26,7 +26,9 @@ public class ControllerInteractionManager : MonoBehaviour
     private InteractableObjectBehavior _hoveredL;
     private bool _laserActiveL;
     private bool _highlightCheckL;
-    //[Header("LP Grab Object")]
+    [Header("Grab Object")]
+    [SerializeField] private Transform _grabPointR;
+    [SerializeField] private Transform _grabPointL;
     //[Header("LP Activate Object")]
 
     void Start()
@@ -88,6 +90,12 @@ public class ControllerInteractionManager : MonoBehaviour
                     _hoveredR.StartHovered(_colorR);
                     _highlightCheckR = true;
                 }
+
+                //If the input to grab the object is pressed
+                if (_inputActivateR.action.ReadValue<float>() == 1) 
+                {
+                    _hoveredR.SetTarget(_grabPointR);
+                }
             }
         }
     }
@@ -139,6 +147,12 @@ public class ControllerInteractionManager : MonoBehaviour
                 {
                     _hoveredL.StartHovered(_colorL);
                     _highlightCheckL = true;
+                }
+
+                //If the input to grab the object is pressed
+                if (_inputActivateL.action.ReadValue<float>() == 1)
+                {
+                    _hoveredL.SetTarget(_grabPointL);
                 }
             }
         }
