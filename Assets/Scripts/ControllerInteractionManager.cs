@@ -15,11 +15,13 @@ public class ControllerInteractionManager : MonoBehaviour
     [SerializeField] private LineRenderer _lineRendererR; //The line renderer of the right hand laser
     [SerializeField] private Transform _laserSpawnR; //The starting point of the right hand laser
     [SerializeField] private Color _colorR; //The color of the right hand laser
+    private InteractableObjectBehavior _hoveredR;
     private bool _laserActiveR;
     //Left hand laser variables
     [SerializeField] private LineRenderer _lineRendererL; //The line renderer of the left hand laser
     [SerializeField] private Transform _laserSpawnL; //The starting point of the left hand laser
     [SerializeField] private Color _colorL; //The color of the left hand laser
+    private InteractableObjectBehavior _hoveredL;
     private bool _laserActiveL;
     //[Header("LP Grab Object")]
     //[Header("LP Activate Object")]
@@ -61,12 +63,22 @@ public class ControllerInteractionManager : MonoBehaviour
             _lineRendererR.SetPosition(0, _laserSpawnR.position);
             _lineRendererR.SetPosition(1, hit.point);
 
+            //If an object that is hovered exists but is not what is currently hovered by the laser, turn off its outline
+            if (_hoveredR) 
+            {
+                if (hit.collider.GetComponent<InteractableObjectBehavior>() != _hoveredR) 
+                {
+                    _hoveredR.StopHovered();
+                    _hoveredR = null;
+                }
+            }
+
             //If the laser hits an interactable object
             if (hit.collider.GetComponent<InteractableObjectBehavior>()) 
             {
                 //Begin highlighting that object with the hands color
-                InteractableObjectBehavior IOB = hit.collider.GetComponent<InteractableObjectBehavior>();
-                IOB.Hovered(_colorR);
+                _hoveredR = hit.collider.GetComponent<InteractableObjectBehavior>();
+                _hoveredR.StartHovered(_colorR);
             }
         }
     }
@@ -76,6 +88,11 @@ public class ControllerInteractionManager : MonoBehaviour
     {
         _laserActiveR = false;
         _lineRendererR.positionCount = 0;
+        if (_hoveredR)
+        {
+            _hoveredR.StopHovered();
+            _hoveredR = null;
+        }
     }
 
     //The function that creates the left handed laser pointer
@@ -92,12 +109,22 @@ public class ControllerInteractionManager : MonoBehaviour
             _lineRendererL.SetPosition(0, _laserSpawnL.position);
             _lineRendererL.SetPosition(1, hit.point);
 
+            //If an object that is hovered exists but is not what is currently hovered by the laser, turn off its outline
+            if (_hoveredL)
+            {
+                if (hit.collider.GetComponent<InteractableObjectBehavior>() != _hoveredL)
+                {
+                    _hoveredL.StopHovered();
+                    _hoveredL = null;
+                }
+            }
+
             //If the laser hits an interactable object
             if (hit.collider.GetComponent<InteractableObjectBehavior>())
             {
                 //Begin highlighting that object with the hands color
-                InteractableObjectBehavior IOB = hit.collider.GetComponent<InteractableObjectBehavior>();
-                IOB.Hovered(_colorL);
+                _hoveredL = hit.collider.GetComponent<InteractableObjectBehavior>();
+                _hoveredL.StartHovered(_colorL);
             }
         }
     }
@@ -107,5 +134,10 @@ public class ControllerInteractionManager : MonoBehaviour
     {
         _laserActiveL = false;
         _lineRendererL.positionCount = 0;
+        if (_hoveredL)
+        {
+            _hoveredL.StopHovered();
+            _hoveredL = null;
+        }
     }
 }

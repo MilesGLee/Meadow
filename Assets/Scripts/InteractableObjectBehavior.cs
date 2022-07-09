@@ -11,14 +11,14 @@ public class InteractableObjectBehavior : MonoBehaviour
         _outline = GetComponent<Outline>();
     }
 
-    void LateUpdate()
-    {
-        _outline.enabled = false;
-    }
-
-    public void Hovered(Color color) 
+    public void StartHovered(Color color) 
     {
         _outline.enabled = true;
         _outline.OutlineColor = color;
+    }
+
+    public void StopHovered()
+    {
+        _outline.enabled = false;
     }
 }
