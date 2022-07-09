@@ -3235,6 +3235,7 @@ GameObject:
   - component: {fileID: 932741362}
   - component: {fileID: 932741363}
   - component: {fileID: 932741364}
+  - component: {fileID: 932741365}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -3298,7 +3299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932741358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e15b5810790347d43982a757b86021cd, type: 3}
   m_Name: 
@@ -3365,6 +3366,24 @@ MonoBehaviour:
   _lineRendererL: {fileID: 2135810948}
   _laserSpawnL: {fileID: 1984260246}
   _colorL: {r: 0, g: 1, b: 0.9490197, a: 1}
+--- !u!114 &932741365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932741358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90cd1da441c7a784fb1a673b48230dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatorR: {fileID: 2202600811109729592}
+  _handGripR: {fileID: 8079477389945484865, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _handTriggerR: {fileID: -2900797163502961676, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _animatorL: {fileID: 6837270824776482108}
+  _handGripL: {fileID: -668990961134500907, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _handTriggerL: {fileID: -7505982115714280982, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &960724611
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,10 +67,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8261229786809798077}
@@ -95,10 +95,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4291927067921814113}
@@ -123,10 +123,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4291927067921814113}
@@ -151,13 +151,13 @@ AnimatorController:
   m_Name: low_poly_lhand
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: handState
+  - m_Name: grip
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: indexState
+  - m_Name: trigger
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -213,10 +213,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5849737416801199638}
@@ -241,10 +241,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6325967619653969469}
@@ -269,10 +269,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5849737416801199638}
@@ -297,10 +297,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6325967619653969469}
@@ -325,10 +325,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8261229786809798077}
@@ -413,10 +413,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4291927067921814113}
@@ -441,10 +441,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6325967619653969469}
@@ -498,10 +498,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: handState
+    m_ConditionEvent: grip
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: indexState
+    m_ConditionEvent: trigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5849737416801199638}

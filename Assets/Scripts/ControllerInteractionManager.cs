@@ -9,20 +9,23 @@ public class ControllerInteractionManager : MonoBehaviour
     [Header("Input")]
     [SerializeField] private InputActionReference _inputGrabR; //The right hand input button to grab highlighted object
     [SerializeField] private InputActionReference _inputGrabL; //The left hand input button to grab highlighted object
-    [Header("Laser Pointer")]
-    //Right hand laser variables
-    [SerializeField] private HandController _handController;
+
+    [Header("Right Hand Laser Pointer")]
+    [SerializeField] private HandStateBehavior _handStateBehavior;
     [SerializeField] private LineRenderer _lineRendererR; //The line renderer of the right hand laser
     [SerializeField] private Transform _laserSpawnR; //The starting point of the right hand laser
     [SerializeField] private Color _colorR; //The color of the right hand laser
     private InteractableObjectBehavior _hoveredR;
     private bool _laserActiveR;
-    //Left hand laser variables
+    private bool _highlightCheckR;
+
+    [Header("Left Hand Laser Pointer")]
     [SerializeField] private LineRenderer _lineRendererL; //The line renderer of the left hand laser
     [SerializeField] private Transform _laserSpawnL; //The starting point of the left hand laser
     [SerializeField] private Color _colorL; //The color of the left hand laser
     private InteractableObjectBehavior _hoveredL;
     private bool _laserActiveL;
+    private bool _highlightCheckL;
     //[Header("LP Grab Object")]
     //[Header("LP Activate Object")]
 
@@ -39,11 +42,11 @@ public class ControllerInteractionManager : MonoBehaviour
     void Update()
     {
         //If the hand is performing the laser action, start the laser pointer for the hand. If not, stop the laser.
-        if (_handController.RightHandLaser)
+        if (_handStateBehavior.HandStateR == HandStateBehavior.HandState.POINT)
             LaserR();
         else if(_laserActiveR)
             StopLaserR();
-        if (_handController.LeftHandLaser)
+        if (_handStateBehavior.HandStateL == HandStateBehavior.HandState.POINT)
             LaserL();
         else if(_laserActiveL)
             StopLaserL();
@@ -70,6 +73,7 @@ public class ControllerInteractionManager : MonoBehaviour
                 {
                     _hoveredR.StopHovered();
                     _hoveredR = null;
+                    _highlightCheckR = false;
                 }
             }
 
@@ -78,7 +82,11 @@ public class ControllerInteractionManager : MonoBehaviour
             {
                 //Begin highlighting that object with the hands color
                 _hoveredR = hit.collider.GetComponent<InteractableObjectBehavior>();
-                _hoveredR.StartHovered(_colorR);
+                if (!_highlightCheckR)
+                {
+                    _hoveredR.StartHovered(_colorR);
+                    _highlightCheckR = true;
+                }
             }
         }
     }
@@ -92,6 +100,7 @@ public class ControllerInteractionManager : MonoBehaviour
         {
             _hoveredR.StopHovered();
             _hoveredR = null;
+            _highlightCheckR = false;
         }
     }
 
@@ -116,6 +125,7 @@ public class ControllerInteractionManager : MonoBehaviour
                 {
                     _hoveredL.StopHovered();
                     _hoveredL = null;
+                    _highlightCheckL = false;
                 }
             }
 
@@ -124,7 +134,11 @@ public class ControllerInteractionManager : MonoBehaviour
             {
                 //Begin highlighting that object with the hands color
                 _hoveredL = hit.collider.GetComponent<InteractableObjectBehavior>();
-                _hoveredL.StartHovered(_colorL);
+                if (!_highlightCheckL)
+                {
+                    _hoveredL.StartHovered(_colorR);
+                    _highlightCheckL = true;
+                }
             }
         }
     }
@@ -138,6 +152,7 @@ public class ControllerInteractionManager : MonoBehaviour
         {
             _hoveredL.StopHovered();
             _hoveredL = null;
+            _highlightCheckL = false;
         }
     }
 }
