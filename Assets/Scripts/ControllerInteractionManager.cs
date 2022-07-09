@@ -46,6 +46,7 @@ public class ControllerInteractionManager : MonoBehaviour
             LaserR();
         else if(_laserActiveR)
             StopLaserR();
+
         if (_handStateBehavior.HandStateL == HandStateBehavior.HandState.POINT)
             LaserL();
         else if(_laserActiveL)
@@ -136,7 +137,7 @@ public class ControllerInteractionManager : MonoBehaviour
                 _hoveredL = hit.collider.GetComponent<InteractableObjectBehavior>();
                 if (!_highlightCheckL)
                 {
-                    _hoveredL.StartHovered(_colorR);
+                    _hoveredL.StartHovered(_colorL);
                     _highlightCheckL = true;
                 }
             }

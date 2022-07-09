@@ -3232,7 +3232,6 @@ GameObject:
   - component: {fileID: 932741360}
   - component: {fileID: 932741359}
   - component: {fileID: 932741361}
-  - component: {fileID: 932741362}
   - component: {fileID: 932741363}
   - component: {fileID: 932741364}
   - component: {fileID: 932741365}
@@ -3292,32 +3291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &932741362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932741358}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e15b5810790347d43982a757b86021cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _leftHand: {fileID: 6837270824776482108}
-  _leftHandGrip: {fileID: -668990961134500907, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _leftHandIndex: {fileID: -7505982115714280982, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _rightHand: {fileID: 2202600811109729592}
-  _rightHandGrip: {fileID: 8079477389945484865, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _rightHandIndex: {fileID: -2900797163502961676, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  LeftHandLaser: 0
-  RightHandLaser: 0
-  LeftHandClosed: 0
-  RightHandClosed: 0
-  RightHeldObject: {fileID: 0}
-  LeftHeldObject: {fileID: 0}
-  LeftHand: {fileID: 430876233}
-  RightHand: {fileID: 1157994110}
 --- !u!114 &932741363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3330,7 +3303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9789dd27e9f1d9b4dbea08231e853448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handController: {fileID: 932741362}
+  _handController: {fileID: 0}
   _leftPoint: {fileID: 1984260246}
   _rightPoint: {fileID: 435715925}
   _leftLR: {fileID: 2135810948}
@@ -3359,7 +3332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputGrabR: {fileID: -3716829722415358559, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _inputGrabL: {fileID: -3899312003631369729, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _handController: {fileID: 932741362}
+  _handStateBehavior: {fileID: 932741365}
   _lineRendererR: {fileID: 2096263463}
   _laserSpawnR: {fileID: 435715925}
   _colorR: {r: 1, g: 0.62352943, b: 0, a: 1}

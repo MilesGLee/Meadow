@@ -27,7 +27,7 @@ public class HandStateBehavior : MonoBehaviour
     [SerializeField] private InputActionReference _handGripL = null;
     [SerializeField] private InputActionReference _handTriggerL = null;
     private HandState _handStateL;
-    public HandState HandStateL { get { return _handStateR; } }
+    public HandState HandStateL { get { return _handStateL; } }
     private bool _handGripCheckL;
     private bool _handTriggerCheckL;
 
