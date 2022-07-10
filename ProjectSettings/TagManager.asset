@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - interactable
   - leftHand
   - rightHand
-  - bed
-  - action
   layers:
   - Default
   - TransparentFX
