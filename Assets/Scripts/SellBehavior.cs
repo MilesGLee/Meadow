@@ -29,7 +29,7 @@ public class SellBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<MarketableBehavior>()) 
+        if (other.GetComponent<MarketableBehavior>() && other.GetComponent<MarketableBehavior>().Worth > 0) 
         {
             _objectsInRange.Add(other.gameObject);
             other.GetComponent<MarketableBehavior>().CanBeSold = true;
@@ -38,7 +38,7 @@ public class SellBehavior : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<MarketableBehavior>())
+        if (_objectsInRange.Contains(other.gameObject))
         {
             _objectsInRange.Remove(other.gameObject);
             other.GetComponent<MarketableBehavior>().CanBeSold = false;

@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class CropBehavior : MonoBehaviour
 {
-    [SerializeField] private int _timeToGrow;
-    [SerializeField] private int _timeGrown;
-    [SerializeField] private bool _planted;
+    public string CropType;
+    public int TimeToGrow;
+    private PlanterBehavior _planterBehavior;
 
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.GetComponent<PlanterBehavior>())
+        {
+            _planterBehavior = other.GetComponent<PlanterBehavior>();
+        }
     }
 
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.GetComponent<PlanterBehavior>())
+        {
+            _planterBehavior = null;
+        }
+    }
+
+    public void PlantSelf() 
+    {
+        if (_planterBehavior != null) 
+        {
+            _planterBehavior.PlantCrop(this);
+        }
     }
 }
